@@ -14,12 +14,16 @@ namespace Demo_MidtermTest
 {
     public partial class frmUI : Form
     {
+        PhichCam2Chan phichCam2Chan;
+        PhichCam3Chan phichCam3Chan;
         public frmUI()
         {
             InitializeComponent();
             TextBox.CheckForIllegalCrossThreadCalls = false;
-            
 
+
+            phichCam2Chan = new PhichCam2Chan(1, 1);
+            phichCam3Chan = new PhichCam3Chan(1, 1, 1);
         }
 
 
@@ -55,19 +59,27 @@ namespace Demo_MidtermTest
             buttonConnect.Enabled = false;
             if (radio2pin.Checked == true)
             {
-                Thread a = new Thread(() =>
-                {
-                    connect(2);
-                    
-                 
-                });
-                a.Start();
-                pictureBox5.Visible = true;
-               
 
+                if (O_Dien.KetNoi(this.phichCam2Chan) == true)
+                {
+                    Thread a = new Thread(() =>
+                    {
+                        connect(2);
+
+
+                    });
+                    a.Start();
+                    pictureBox5.Visible = true;
+                }
+                else
+                {
+                    MessageBox.Show("Không kết nối được! vui lòng kiểm tra nguồn");
+                }
+             
             }
             else
             {
+
                 Thread a = new Thread(() =>
                 {
                     connect(3);
@@ -78,6 +90,44 @@ namespace Demo_MidtermTest
 
             }
 
+        }
+        private void buttonAdapter_Click(object sender, EventArgs e)
+        {
+            buttonConnect.Enabled = false;
+            buttonReset.Enabled = false;
+            buttonAdapter.Enabled = false;
+            frmAdapter frm = new frmAdapter();
+            frm.ShowDialog();
+            if (radio2pin.Checked == true)
+            {
+
+                Thread a = new Thread(() =>
+                {
+
+                    connectAdapter(2);
+
+                });
+                a.Start();
+            }
+            else
+            {
+                Adapter_03Phich_to_02Phich adapter_03Phich_To_02Phich = new Adapter_03Phich_to_02Phich(phichCam3Chan);
+                if (O_Dien.KetNoi(adapter_03Phich_To_02Phich.convert()) == true)
+                {
+                    pictureBox4.Visible = true;
+                    Thread a = new Thread(() =>
+                    {
+                        connectAdapter(3);
+                    });
+
+                    a.Start();
+                }
+                else
+                    MessageBox.Show("Không kết nối được! vui lòng kiểm tra nguồn");
+
+
+            }
+            pictureBox7.Visible = true;
         }
         void connect(int pin)
         {
@@ -168,9 +218,6 @@ namespace Demo_MidtermTest
         }
         void pin3()
         {
-            int xi = pictureBox3.Location.X;
-            int yi = pictureBox3.Location.Y;
-
             pictureBox3.Location = new Point(pictureBox3.Location.X, pictureBox3.Location.Y - Cons.hight - 10);
             Thread.Sleep(100);
 
@@ -195,10 +242,6 @@ namespace Demo_MidtermTest
         }
         void pin3Adpater()
         {
-            pictureBox3.Visible = false;
-            pictureBox4.Visible = true;
-            //pictureBox3.Location = new Point(pictureBox3.Location.X, pictureBox3.Location.Y - Cons.hight - 10);
-            //Thread.Sleep(100);
             pictureBox4.Location = new Point(pictureBox4.Location.X, pictureBox4.Location.Y - Cons.hight - 10);
             Thread.Sleep(100);
 
@@ -224,8 +267,6 @@ namespace Demo_MidtermTest
         }
         void pin2Adpater()
         {
-
-            
             MessageBox.Show("Can't connect Adapter!!!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Error);
             buttonConnect.Enabled = true;
             buttonReset.Enabled = true;
@@ -255,37 +296,7 @@ namespace Demo_MidtermTest
 
         }
 
-        private void buttonAdapter_Click(object sender, EventArgs e)
-        {
-            buttonConnect.Enabled = false;
-            buttonReset.Enabled = false;
-            buttonAdapter.Enabled = false;
-            frmAdapter frm = new frmAdapter();
-                frm.ShowDialog();
-            if (radio2pin.Checked == true)
-            {
-                
-                Thread a = new Thread(() =>
-                {
-                    
-                    connectAdapter(2);
-                   
-                });
-                a.Start();
-            }
-            else
-            {
-                pictureBox4.Visible = true;
-                Thread a = new Thread(() =>
-                {
-                    connectAdapter(3);
-                });
-               
-                a.Start();
-               
-            }
-            pictureBox7.Visible = true;
-        }
+       
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
