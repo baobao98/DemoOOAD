@@ -160,7 +160,7 @@ namespace Demo_MidtermTest
             pictureBox1.Visible = false;
             //pictureBox1.BackColor = Color.Transparent;
             Thread.Sleep(100);
-            MessageBox.Show("Connect!!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Connected Successfully!!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
             buttonAdapter.Enabled = true;
             buttonReset.Enabled = true;
             buttonConnect.Enabled = true;
@@ -186,7 +186,7 @@ namespace Demo_MidtermTest
             pictureBox6.Visible = true;
             pictureBox3.Visible = false;
             pictureBox1.Visible = false;
-            MessageBox.Show("No connect!!!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show("Connection Error !!!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Error);
             buttonAdapter.Enabled = true;
             buttonReset.Enabled = true;
             buttonConnect.Enabled = true;
