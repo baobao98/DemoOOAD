@@ -48,6 +48,12 @@
   <ItemGroup>
     <Compile Include="Adapter_03Phich_to_02Phich.cs" />
     <Compile Include="Cons.cs" />
+    <Compile Include="frmAdapter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAdapter.Designer.cs">
+      <DependentUpon>frmAdapter.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDemoStateCodeBehind.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +73,9 @@
     <Compile Include="PhichCam3ChanInterface.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmAdapter.resx">
+      <DependentUpon>frmAdapter.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDemoStateCodeBehind.resx">
       <DependentUpon>frmDemoStateCodeBehind.cs</DependentUpon>
     </EmbeddedResource>

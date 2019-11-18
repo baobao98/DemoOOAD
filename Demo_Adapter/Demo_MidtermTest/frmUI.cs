@@ -154,7 +154,7 @@ namespace Demo_MidtermTest
             pictureBox1.Visible = false;
             //pictureBox1.BackColor = Color.Transparent;
             Thread.Sleep(100);
-            MessageBox.Show("Connect", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Connect!!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
             
         }
         void pin3()
@@ -177,7 +177,7 @@ namespace Demo_MidtermTest
             pictureBox6.Visible = true;
             pictureBox3.Visible = false;
             pictureBox1.Visible = false;
-            MessageBox.Show("No connect", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show("No connect!!!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Error);
        
 
         }
@@ -204,7 +204,7 @@ namespace Demo_MidtermTest
             pictureBox7.Visible = true;
             pictureBox4.Visible = false;
             pictureBox1.Visible = false;
-            MessageBox.Show("Connect", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Connect!!!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
         }
@@ -212,7 +212,7 @@ namespace Demo_MidtermTest
         {
 
             
-            MessageBox.Show("No Connect Adapter", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show("Can't connect Adapter!!!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
 
         }
@@ -241,6 +241,8 @@ namespace Demo_MidtermTest
 
         private void buttonAdapter_Click(object sender, EventArgs e)
         {
+            frmAdapter frm = new frmAdapter();
+                frm.ShowDialog();
             if (radio2pin.Checked == true)
             {
                 
