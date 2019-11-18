@@ -16,7 +16,7 @@ namespace Demo_MidtermTest
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmDemoStateCodeBehind());
+            Application.Run(new frmUI());
         }
     }
 }
