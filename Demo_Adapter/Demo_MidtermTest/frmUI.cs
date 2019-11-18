@@ -14,12 +14,16 @@ namespace Demo_MidtermTest
 {
     public partial class frmUI : Form
     {
+        PhichCam2Chan phichCam2Chan;
+        PhichCam3Chan phichCam3Chan;
         public frmUI()
         {
             InitializeComponent();
             TextBox.CheckForIllegalCrossThreadCalls = false;
-            
 
+
+            phichCam2Chan = new PhichCam2Chan(1, 1);
+            phichCam3Chan = new PhichCam3Chan(1, 1, 1);
         }
 
 
@@ -55,19 +59,27 @@ namespace Demo_MidtermTest
             buttonConnect.Enabled = false;
             if (radio2pin.Checked == true)
             {
-                Thread a = new Thread(() =>
-                {
-                    connect(2);
-                    
-                 
-                });
-                a.Start();
-                pictureBox5.Visible = true;
-               
 
+                if (O_Dien.KetNoi(this.phichCam2Chan) == true)
+                {
+                    Thread a = new Thread(() =>
+                    {
+                        connect(2);
+
+
+                    });
+                    a.Start();
+                    pictureBox5.Visible = true;
+                }
+                else
+                {
+                    MessageBox.Show("Không kết nối được! vui lòng kiểm tra nguồn");
+                }
+             
             }
             else
             {
+
                 Thread a = new Thread(() =>
                 {
                     connect(3);
@@ -275,13 +287,20 @@ namespace Demo_MidtermTest
             }
             else
             {
-                pictureBox4.Visible = true;
-                Thread a = new Thread(() =>
+                Adapter_03Phich_to_02Phich adapter_03Phich_To_02Phich = new Adapter_03Phich_to_02Phich(phichCam3Chan);
+                if (O_Dien.KetNoi(adapter_03Phich_To_02Phich.convert()) == true)
                 {
-                    connectAdapter(3);
-                });
+                    pictureBox4.Visible = true;
+                    Thread a = new Thread(() =>
+                    {
+                        connectAdapter(3);
+                    });
+
+                    a.Start();
+                }
+                else
+                    MessageBox.Show("Không kết nối được! vui lòng kiểm tra nguồn");
                
-                a.Start();
                
             }
             pictureBox7.Visible = true;
