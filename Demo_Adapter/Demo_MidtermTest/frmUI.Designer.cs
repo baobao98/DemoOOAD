@@ -172,7 +172,7 @@
             // 
             // buttonConnect
             // 
-            this.buttonConnect.Location = new System.Drawing.Point(346, 24);
+            this.buttonConnect.Location = new System.Drawing.Point(340, 24);
             this.buttonConnect.Name = "buttonConnect";
             this.buttonConnect.Size = new System.Drawing.Size(75, 54);
             this.buttonConnect.TabIndex = 1;
@@ -182,7 +182,7 @@
             // 
             // buttonAdapter
             // 
-            this.buttonAdapter.Location = new System.Drawing.Point(436, 24);
+            this.buttonAdapter.Location = new System.Drawing.Point(437, 24);
             this.buttonAdapter.Name = "buttonAdapter";
             this.buttonAdapter.Size = new System.Drawing.Size(149, 54);
             this.buttonAdapter.TabIndex = 1;
@@ -196,7 +196,7 @@
             this.buttonReset.Name = "buttonReset";
             this.buttonReset.Size = new System.Drawing.Size(116, 54);
             this.buttonReset.TabIndex = 1;
-            this.buttonReset.Text = "Reset";
+            this.buttonReset.Text = "Reset/Disconnect";
             this.buttonReset.UseVisualStyleBackColor = true;
             this.buttonReset.Click += new System.EventHandler(this.buttonReset_Click);
             // 

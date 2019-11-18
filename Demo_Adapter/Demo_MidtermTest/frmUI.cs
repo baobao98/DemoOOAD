@@ -50,6 +50,9 @@ namespace Demo_MidtermTest
        
         private void buttonConnect_Click(object sender, EventArgs e)
         {
+            buttonAdapter.Enabled = false;
+            buttonReset.Enabled = false;
+            buttonConnect.Enabled = false;
             if (radio2pin.Checked == true)
             {
                 Thread a = new Thread(() =>
@@ -60,6 +63,8 @@ namespace Demo_MidtermTest
                 });
                 a.Start();
                 pictureBox5.Visible = true;
+               
+
             }
             else
             {
@@ -69,8 +74,10 @@ namespace Demo_MidtermTest
                 });
                 a.Start();
                 pictureBox6.Visible = true;
+                
+
             }
-            
+
         }
         void connect(int pin)
         {
@@ -135,13 +142,12 @@ namespace Demo_MidtermTest
         }
         void pin2()
         {
-            int xi = pictureBox2.Location.X;
-            int yi = pictureBox2.Location.Y;
+           
 
             pictureBox2.Location = new Point(pictureBox2.Location.X, pictureBox2.Location.Y + Cons.hight + 10);
             Thread.Sleep(100);
 
-            while (pictureBox2.Location.X < 400)
+            while (pictureBox2.Location.X < 370)
             {
                 pictureBox2.Location = new Point(pictureBox2.Location.X + 10, pictureBox2.Location.Y);
                 Thread.Sleep(100);
@@ -155,7 +161,10 @@ namespace Demo_MidtermTest
             //pictureBox1.BackColor = Color.Transparent;
             Thread.Sleep(100);
             MessageBox.Show("Connect!!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            
+            buttonAdapter.Enabled = true;
+            buttonReset.Enabled = true;
+            buttonConnect.Enabled = true;
+
         }
         void pin3()
         {
@@ -165,7 +174,7 @@ namespace Demo_MidtermTest
             pictureBox3.Location = new Point(pictureBox3.Location.X, pictureBox3.Location.Y - Cons.hight - 10);
             Thread.Sleep(100);
 
-            while (pictureBox3.Location.X < 400)
+            while (pictureBox3.Location.X < 370)
             {
                 pictureBox3.Location = new Point(pictureBox3.Location.X + 10, pictureBox3.Location.Y);
                 Thread.Sleep(100);
@@ -178,7 +187,10 @@ namespace Demo_MidtermTest
             pictureBox3.Visible = false;
             pictureBox1.Visible = false;
             MessageBox.Show("No connect!!!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Error);
-       
+            buttonAdapter.Enabled = true;
+            buttonReset.Enabled = true;
+            buttonConnect.Enabled = true;
+
 
         }
         void pin3Adpater()
@@ -205,7 +217,9 @@ namespace Demo_MidtermTest
             pictureBox4.Visible = false;
             pictureBox1.Visible = false;
             MessageBox.Show("Connect!!!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+            buttonConnect.Enabled = true;
+            buttonReset.Enabled = true;
+            buttonAdapter.Enabled = true;
 
         }
         void pin2Adpater()
@@ -213,7 +227,9 @@ namespace Demo_MidtermTest
 
             
             MessageBox.Show("Can't connect Adapter!!!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+            buttonConnect.Enabled = true;
+            buttonReset.Enabled = true;
+            buttonAdapter.Enabled = true;
 
         }
 
@@ -241,6 +257,9 @@ namespace Demo_MidtermTest
 
         private void buttonAdapter_Click(object sender, EventArgs e)
         {
+            buttonConnect.Enabled = false;
+            buttonReset.Enabled = false;
+            buttonAdapter.Enabled = false;
             frmAdapter frm = new frmAdapter();
                 frm.ShowDialog();
             if (radio2pin.Checked == true)
