@@ -1,0 +1,25 @@
+----------OVERVIEW--------------
+There are two folder Demo named: Demo_Adapter & Demo_Singleton
+There is folder named Docs where contains all documents for this midterm project: word, powerpoint & pdf file
+You enter the folder and open the file sln to build  & run
+-or you can go straightly to the release folder(*/bin/release) to run file exe 
+
+----Demo Singleton Instruction------
+On the window form, you would see:
+The left button represents the normal way to create new form 
+The right button represents the singleton way to create a form
+Then you just try to click the two buttons and see how it works
+
+---Demo Adapter Instruction------
+There are 3 buttons with label corresponding their functions
+
+Firstly, you should try to connect 2 pin plug to the 2 pin socket by clicking the button Connect
+Secondly, this time, you should try to connect 3 pin plug (choose the 3 pin plug ) to the 2 pin socket by clicking the button Connect
+Finally, After you choose the 3 pin plug, you should try to click the button "Connect with Adapter".
+
+Each phase will show up the window notifying the result of connection
+
+source here: https://github.com/baobao98/DemoOOAD
+
+#group 04
+
