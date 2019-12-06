@@ -10,7 +10,7 @@ namespace Demo_Singleton
     public class Singleton
     {
         private Form _frm;
-        private static readonly Singleton instance = new Singleton();
+        private static Singleton instance = new Singleton();
         static Singleton()
         {
         }
